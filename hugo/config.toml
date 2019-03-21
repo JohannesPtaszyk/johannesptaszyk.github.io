@@ -11,7 +11,7 @@ summaryLength              = 200
 Paginate                   = 3
 
 theme                      = "Everything"
-title                      = "Orianna"
+title                      = "pott.dev"
 
 pygmentsuseclasses         = true
 
@@ -48,7 +48,7 @@ pygmentsuseclasses         = true
  
 
 [params]
-  faviconfile              = "img/zheng.png"               # from static/
+  faviconfile              = "img/logo.png"               # from static/
   avatar                   = "img/profile.jpg"             # path to image in static dir e.g img/avatar.png 
   author                   = "Johannes"
   description              = ["Software Development", "Music", "More"]           # appears in the site header when set to a non-empty string
