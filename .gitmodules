@@ -1,0 +1,3 @@
+[submodule "hugo/themes/Everything"]
+	path = hugo/themes/Everything
+	url = https://github.com/JohannesPtaszyk/Everything.git
