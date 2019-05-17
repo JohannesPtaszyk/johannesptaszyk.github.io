@@ -60,14 +60,10 @@
   
   >
 
-
-  
-  
-
   <style type="text/css">
       @media (min-width: 800px) and (max-width: 850px) {
               .navbar:not(.top-nav-collapse) {
-                  background: #1C2331!important;
+                  background: #009783!important;
               }
           }
   </style>
@@ -378,7 +374,7 @@
 $(window).bind('hashchange', function (event) {
     $.smoothScroll({
         // Replace '#/' with '#' to go to the correct target
-        scrollTarget: <mark style="background: #eeb4ff;">decodeURI</mark>(location.hash.replace(/^\#\/?/, '#'))
+        scrollTarget: &lt;mark style=&quot;background: #eeb4ff;&quot;&gt;decodeURI&lt;/mark&gt;(location.hash.replace(/^\#\/?/, '#'))
     });
 });
 
@@ -413,7 +409,7 @@ if (location.hash) {
 // Bind the hashchange event listener
 $(window).bind('hashchange', function (event) {
     $.smoothScroll({
-         <mark style="background: #eeb4ff;">offset: $(&lsquo;body&rsquo;).attr(&lsquo;data-offset&rsquo;)? -$(&lsquo;body&rsquo;).attr(&lsquo;data-offset&rsquo;):0 ,</mark>
+         &lt;mark style=&quot;background: #eeb4ff;&quot;&gt;offset: $('body').attr('data-offset')? -$('body').attr('data-offset'):0 ,&lt;/mark&gt;
         // Replace '#/' with '#' to go to the correct target
         scrollTarget: location.hash.replace(/^\#\/?/, '#')
     });
@@ -672,8 +668,6 @@ if (location.hash) {
     
     
         <a href="mailto:johannes.ptaszyk@pott.dev"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
-    
-
     
 
     
