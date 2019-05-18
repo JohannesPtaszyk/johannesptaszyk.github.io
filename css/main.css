@@ -549,7 +549,7 @@ Avatar
 
 @media (max-width: 767px) and (orientation : portrait) {
   .avatar-lg {
-    width: 100px;
+    width: 150px;
     float: none!important;
   }
 
@@ -565,6 +565,10 @@ Avatar
 
   .carousel-content div {
     font-size: 1rem!important;
+  }
+
+  .carousel-content .text-left {
+    text-align: center!important
   }
 
 }
@@ -587,6 +591,13 @@ Avatar
     font-size: 1rem!important;
   }
 
+  .carousel-content .text-left {
+    text-align: left!important
+  }
+
+  .carousel-content .pl-5 {
+    padding-left: 0%!important
+  }
 }
 
 
@@ -620,11 +631,10 @@ carousel
 .pull-right {
   float: right;
 }
+
 .carousel-indicators, .carousel-control-prev, .carousel-control-next {
   z-index: 30;
 }
-
-
 
 /* 
 
