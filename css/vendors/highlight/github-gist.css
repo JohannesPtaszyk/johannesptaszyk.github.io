@@ -5,15 +5,15 @@
 
 .hljs {
   display: block;
-  background: white;
+  background: rgb(218, 218, 218);
   padding: 0.5em;
-  color: #333333;
+  color: #ffeeb0;
   overflow-x: auto;
 }
 
 .hljs-comment,
 .hljs-meta {
-  color: #969896;
+  color: #818181;
 }
 
 .hljs-string,
@@ -22,13 +22,13 @@
 .hljs-strong,
 .hljs-emphasis,
 .hljs-quote {
-  color: #df5000;
+  color: #0073a8;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-type {
-  color: #a71d5d;
+  color: #59d669;
 }
 
 .hljs-literal,
@@ -40,11 +40,11 @@
 
 .hljs-section,
 .hljs-name {
-  color: #63a35c;
+  color: #44b18d;
 }
 
 .hljs-tag {
-  color: #333333;
+  color: #636363;
 }
 
 .hljs-title,
