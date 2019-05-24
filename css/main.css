@@ -1113,7 +1113,7 @@ toc-nav  scrollspy
 }
 
 .post-item .meta {
-  color: rgb(247, 0, 0);
+  color: var(--text-grey);
   display: flex;
   min-width: 100px;
   text-align: right;
