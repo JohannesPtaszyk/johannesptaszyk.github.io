@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on pott.dev</title>
-    <link>https://www.pott.dev/blog/</link>
-    <description>Recent content in Blogs on pott.dev</description>
+    <title>kotlin on pott.dev</title>
+    <link>https://www.pott.dev/tags/kotlin/</link>
+    <description>Recent content in kotlin on pott.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 May 2019 21:29:44 +0200</lastBuildDate>
     
-	<atom:link href="https://www.pott.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.pott.dev/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -23,20 +23,6 @@ There is only one thing, which still remains true for the most cases:
  Testing asynchronous code in isolation can be really difficult.
  We will make it look easy with a few simple tricks. I promise!
 Coroutines For a while now we can use Kotlin Coroutines.</description>
-    </item>
-    
-    <item>
-      <title>Introducing myself</title>
-      <link>https://www.pott.dev/blog/2019-05/introducing-myself/</link>
-      <pubDate>Fri, 31 May 2019 16:24:21 +0200</pubDate>
-      
-      <guid>https://www.pott.dev/blog/2019-05/introducing-myself/</guid>
-      <description>Who am I? My name is Johannes Ptaszyk.
-I located and born in Bottrop, Germany and I identify as european.
-Also I identify as the following:
- Software developer Political being Nature lover Music lover  What do I do? Currently I am working as a Junior in the Android development team at G Data Software AG.
-I recently joined the german party Bündnis 90/Die Grünen to bring some new ideas to the german politics.
-What is this website about?</description>
     </item>
     
   </channel>

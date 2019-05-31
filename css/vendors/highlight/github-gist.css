@@ -1,71 +1,115 @@
-/**
- * GitHub Gist Theme
- * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
+/*
+ * Visual Studio 2015 dark style
+ * Author: Nicolas LLOBERA <nllobera@gmail.com>
  */
 
-.hljs {
+ .hljs {
   display: block;
-  background: rgb(218, 218, 218);
-  padding: 0.5em;
-  color: #ffeeb0;
   overflow-x: auto;
-}
-
-.hljs-comment,
-.hljs-meta {
-  color: #818181;
-}
-
-.hljs-string,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-strong,
-.hljs-emphasis,
-.hljs-quote {
-  color: #0073a8;
+  padding: 0.5em;
+  background: #1E1E1E;
+  color: #DCDCDC;
 }
 
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-type {
-  color: #59d669;
-}
-
 .hljs-literal,
 .hljs-symbol,
-.hljs-bullet,
-.hljs-attribute {
-  color: #0086b3;
-}
-
-.hljs-section,
 .hljs-name {
-  color: #44b18d;
+  color: #569CD6;
+}
+.hljs-link {
+  color: #569CD6;
+  text-decoration: underline;
 }
 
-.hljs-tag {
-  color: #636363;
+.hljs-built_in,
+.hljs-type {
+  color: #4EC9B0;
 }
 
+.hljs-number,
+.hljs-class {
+  color: #B8D7A3;
+}
+
+.hljs-string,
+.hljs-meta-string {
+  color: #D69D85;
+}
+
+.hljs-regexp,
+.hljs-template-tag {
+  color: #9A5334;
+}
+
+.hljs-subst,
+.hljs-function,
 .hljs-title,
+.hljs-params,
+.hljs-formula {
+  color: #DCDCDC;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #57A64A;
+  font-style: italic;
+}
+
+.hljs-doctag {
+  color: #608B4E;
+}
+
+.hljs-meta,
+.hljs-meta-keyword,
+.hljs-tag {
+  color: #9B9B9B;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #BD63C5;
+}
+
 .hljs-attr,
+.hljs-attribute,
+.hljs-builtin-name {
+  color: #9CDCFE;
+}
+
+.hljs-section {
+  color: gold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/*.hljs-code {
+  font-family:'Monospace';
+}*/
+
+.hljs-bullet,
+.hljs-selector-tag,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-selector-attr,
 .hljs-selector-pseudo {
-  color: #795da3;
+  color: #D7BA7D;
 }
 
 .hljs-addition {
-  color: #55a532;
-  background-color: #eaffea;
+  background-color: #144212;
+  display: inline-block;
+  width: 100%;
 }
 
 .hljs-deletion {
-  color: #bd2c00;
-  background-color: #ffecec;
-}
-
-.hljs-link {
-  text-decoration: underline;
+  background-color: #600;
+  display: inline-block;
+  width: 100%;
 }

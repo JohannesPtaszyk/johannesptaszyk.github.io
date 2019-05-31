@@ -6,7 +6,7 @@
     <description>Recent content in Tags on pott.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 May 2019 16:24:21 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2019 21:29:44 +0200</lastBuildDate>
     
 	<atom:link href="https://www.pott.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>blog</title>
       <link>https://www.pott.dev/tags/blog/</link>
-      <pubDate>Fri, 31 May 2019 16:24:21 +0200</pubDate>
+      <pubDate>Fri, 31 May 2019 21:29:44 +0200</pubDate>
       
       <guid>https://www.pott.dev/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coroutines</title>
+      <link>https://www.pott.dev/tags/coroutines/</link>
+      <pubDate>Fri, 31 May 2019 21:29:44 +0200</pubDate>
+      
+      <guid>https://www.pott.dev/tags/coroutines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kotlin</title>
+      <link>https://www.pott.dev/tags/kotlin/</link>
+      <pubDate>Fri, 31 May 2019 21:29:44 +0200</pubDate>
+      
+      <guid>https://www.pott.dev/tags/kotlin/</guid>
       <description></description>
     </item>
     

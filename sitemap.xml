@@ -4,31 +4,60 @@
   
   <url>
     <loc>https://www.pott.dev/blog/</loc>
-    <lastmod>2019-05-31T16:24:21+02:00</lastmod>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pott.dev/categories/</loc>
-    <lastmod>2019-05-31T16:24:21+02:00</lastmod>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/tags/</loc>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/blog/2019-05/testing-asynchronous-code/</loc>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/tags/blog/</loc>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/tags/coroutines/</loc>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/tags/kotlin/</loc>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/categories/kotlin/</loc>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/</loc>
+    <lastmod>2019-05-31T21:29:44+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pott.dev/blog/2019-05/introducing-myself/</loc>
     <lastmod>2019-05-31T16:24:21+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.pott.dev/tags/</loc>
-    <lastmod>2019-05-31T16:24:21+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.pott.dev/tags/blog/</loc>
-    <lastmod>2019-05-31T16:24:21+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -39,12 +68,6 @@
   
   <url>
     <loc>https://www.pott.dev/categories/personal/</loc>
-    <lastmod>2019-05-31T16:24:21+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.pott.dev/</loc>
     <lastmod>2019-05-31T16:24:21+02:00</lastmod>
     <priority>0</priority>
   </url>

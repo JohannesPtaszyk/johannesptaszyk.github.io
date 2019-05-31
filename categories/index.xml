@@ -6,10 +6,19 @@
     <description>Recent content in Categories on pott.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 May 2019 16:24:21 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2019 21:29:44 +0200</lastBuildDate>
     
 	<atom:link href="https://www.pott.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kotlin</title>
+      <link>https://www.pott.dev/categories/kotlin/</link>
+      <pubDate>Fri, 31 May 2019 21:29:44 +0200</pubDate>
+      
+      <guid>https://www.pott.dev/categories/kotlin/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>personal</title>

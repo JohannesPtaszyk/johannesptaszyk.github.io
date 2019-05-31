@@ -10,34 +10,34 @@
     
     <meta name="author" content="Johannes">
     <meta name="description"
-        content="Who am I? My name is Johannes Ptaszyk.
-I located and born in Bottrop, Germany and I identify as european.
-Also I identify as the following:
- Software developer Political being Nature lover Music lover  What do I do? Currently I am working as a Junior in the Android development team at G Data Software AG.
-I recently joined the german party Bündnis 90/Die Grünen to bring some new ideas to the german politics.
-What is this website about?">
+        content="From time to time developers must write asynchronous code. This can for example be to access the database or make a network call.
+Writing asynchronous code is getting esier and easier. Languages and frameworks provide better tools and constructs than ever.
+There is only one thing, which still remains true for the most cases:
+ Testing asynchronous code in isolation can be really difficult.
+ We will make it look easy with a few simple tricks. I promise!
+Coroutines For a while now we can use Kotlin Coroutines.">
 
-    <meta property="og:title" content="Introducing myself" />
-<meta property="og:description" content="Who am I? My name is Johannes Ptaszyk.
-I located and born in Bottrop, Germany and I identify as european.
-Also I identify as the following:
- Software developer Political being Nature lover Music lover  What do I do? Currently I am working as a Junior in the Android development team at G Data Software AG.
-I recently joined the german party Bündnis 90/Die Grünen to bring some new ideas to the german politics.
-What is this website about?" />
+    <meta property="og:title" content="Testing asynchronous code" />
+<meta property="og:description" content="From time to time developers must write asynchronous code. This can for example be to access the database or make a network call.
+Writing asynchronous code is getting esier and easier. Languages and frameworks provide better tools and constructs than ever.
+There is only one thing, which still remains true for the most cases:
+ Testing asynchronous code in isolation can be really difficult.
+ We will make it look easy with a few simple tricks. I promise!
+Coroutines For a while now we can use Kotlin Coroutines." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.pott.dev/blog/2019-05/introducing-myself/" />
-<meta property="article:published_time" content="2019-05-31T16:24:21&#43;02:00"/>
-<meta property="article:modified_time" content="2019-05-31T16:24:21&#43;02:00"/>
+<meta property="og:url" content="https://www.pott.dev/blog/2019-05/testing-asynchronous-code/" />
+<meta property="article:published_time" content="2019-05-31T21:29:44&#43;02:00"/>
+<meta property="article:modified_time" content="2019-05-31T21:29:44&#43;02:00"/>
 
 
     <title>
         
-         Introducing myself | pott.dev
+         Testing asynchronous code | pott.dev
         
         
     </title>
 
-    <link rel="canonical" href="https://www.pott.dev/blog/2019-05/introducing-myself/">
+    <link rel="canonical" href="https://www.pott.dev/blog/2019-05/testing-asynchronous-code/">
 
     
     
@@ -345,8 +345,8 @@ What is this website about?" />
 				
 
 				<li class="nav-item">
-					<a class="nav-link" href="#who-am-i">
-						Who am I?
+					<a class="nav-link" href="#coroutines">
+						Coroutines
 					</a>
 				</li>
 
@@ -367,8 +367,8 @@ What is this website about?" />
 				
 
 				<li class="nav-item">
-					<a class="nav-link" href="#what-do-i-do">
-						What do I do?
+					<a class="nav-link" href="#wrapping">
+						Wrapping
 					</a>
 				</li>
 
@@ -389,30 +389,8 @@ What is this website about?" />
 				
 
 				<li class="nav-item">
-					<a class="nav-link" href="#what-is-this-website-about">
-						What is this website about?
-					</a>
-				</li>
-
-				
-				
-			</ul>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<ul class="nav">
-				
-				
-
-				<li class="nav-item">
-					<a class="nav-link" href="#thank-you">
-						Thank you
+					<a class="nav-link" href="#testing">
+						Testing
 					</a>
 				</li>
 
@@ -443,14 +421,14 @@ What is this website about?" />
   <ul class="post-meta li-x">
     
     
-    <li><a href="https://www.pott.dev/categories/personal"><i class="fas fa-folder-open pr-1"
-          aria-hidden="true"></i> personal </a></li>
+    <li><a href="https://www.pott.dev/categories/kotlin"><i class="fas fa-folder-open pr-1"
+          aria-hidden="true"></i> kotlin </a></li>
     
     
     
   </ul>
 
-  <div class="px-4 post-heading">Introducing myself</div>
+  <div class="px-4 post-heading">Testing asynchronous code</div>
 
   <ul class="post-meta li-x mt-1">
     
@@ -459,12 +437,12 @@ What is this website about?" />
 
     
     <li class="middot"></li>
-    <li>2 minutes read</li>
+    <li>4 minutes read</li>
     
   </ul>
   
   <div class="view">
-    <img src="https://www.pott.dev/images/blog/2019-05/about_me_title.jpg" />
+    <img src="https://www.pott.dev/images/blog/2019-05/UnitTestCoroutinesTitle.jpg" />
   </div>
   
 
@@ -474,46 +452,167 @@ What is this website about?" />
           <div class="post-content markdown">
             
 
-<h1 id="who-am-i">Who am I?</h1>
+<p>From time to time developers must write asynchronous code. This can for example be to access the database or make a network call.</p>
 
-<p>My name is Johannes Ptaszyk.</p>
+<p>Writing asynchronous code is getting esier and easier. Languages and frameworks provide better tools and constructs than ever.</p>
 
-<p>I located and born in Bottrop, Germany and I identify as european.</p>
+<p>There is only one thing, which still remains true for the most cases:</p>
 
-<p>Also I identify as the following:</p>
+<blockquote>
+<p>Testing asynchronous code in isolation can be really difficult.</p>
+</blockquote>
 
-<ul>
-<li>Software developer</li>
-<li>Political being</li>
-<li>Nature lover</li>
-<li>Music lover</li>
-</ul>
+<p>We will make it look easy with a few simple tricks. I promise!</p>
 
-<h1 id="what-do-i-do">What do I do?</h1>
+<h1 id="coroutines">Coroutines</h1>
 
-<p>Currently I am working as a Junior in the Android development team at <a href="https://www.gdata.de/">G Data Software AG</a>.</p>
+<p>For a while now we can use Kotlin Coroutines. They provide an easy way to write async code that will help us not blocking our main thread.</p>
 
-<p>I recently joined the german party <a href="https://www.gruene.de/">Bündnis 90/Die Grünen</a> to bring some new ideas to the german politics.</p>
+<p>Simple coroutine example:</p>
 
-<h1 id="what-is-this-website-about">What is this website about?</h1>
+<pre><code class="language-Kotlin">class Task {
 
-<p>Mostly about me and my experiences and thoughts.</p>
+    fun longRunningTask() {
 
-<p>I am currently planing multiple sections and over time I might add more and more.</p>
+            GlobalScope.launch() {
+                // This code is run in a coroutine in the background.
+                // The coroutine will run with Dispatchers.Default under the hood.
+            }
 
-<p>The main section will be the blog, where I will mostly write about technical stuff (e.g. Android Development or Hugo). This section will be mostly english.</p>
+            //Code here will not run in the coroutine
+    }
+}
+</code></pre>
 
-<p>There will be another section in the future where I write about politics that will most likely be written in german.</p>
+<p>But we can go a little bit further on that example:</p>
 
-<p>And then I plan on a third one that will be mostly creatvitiy related stuff like music, art or creating different kinds of things. Here I will have some german and some english posts depending on the topics.</p>
+<pre><code class="language-Kotlin">class Task {
 
-<h1 id="thank-you">Thank you</h1>
+    fun longRunningTask(callback: () -&gt; Unit) {
 
-<p>Thank you for reading this small introduction about myself. I am looking forward to seeing comments on my posts and maybe I can even provide some useful stuff to you!</p>
+            GlobalScope.launch(Dispatchers.Default) {
+                // Do heavy lifting on the background threadpool
 
-<p>See you soon!</p>
+                withContext(Dispatchers.Main) {
+                    // This will run in main thread again
+                    callback.invoke()
+                }
+            }
 
-<p>Johannes</p>
+            //Code here will not run in the coroutine
+    }
+}
+</code></pre>
+
+<p>In the example above we make use of the concept of coroutine context:
+Every coroutine launches in a context. From the <a href="https://kotlinlang.org/docs/reference/coroutines/coroutine-context-and-dispatchers.html">Kotlin doc</a>:
+&gt; Coroutines always execute in some context which is represented by the value
+&gt; of CoroutineContext type, defined in the Kotlin standard library.
+&gt;
+&gt; The coroutine context is a set of various elements. The main elements are
+&gt; the Job of the coroutine, which we&rsquo;ve seen before, and its dispatcher
+&gt; which is covered in this section.</p>
+
+<p>We currently would have no real way to run this in a test succesfully, because our unit test would be finished before the there was an oportunity for the coroutine to call the callback and there would be no way to verify any behavior.</p>
+
+<p>To now accomplish this we will have to write a little bit of code.</p>
+
+<h1 id="wrapping">Wrapping</h1>
+
+<p><img src="https://www.pott.dev/images/blog/2019-05/UnitTestCoroutinesWrap.jpg" alt="image" /></p>
+
+<p>We will now make use of a wrapper class that will provide our context for the coroutines.</p>
+
+<pre><code class="language-Kotlin">
+open class ContextProvider {
+    open val Main = Dispatchers.Main
+    open val Background = Dispatchers.Default
+}
+
+</code></pre>
+
+<p>And then we will use this class with help from a default parameter, so we do not have to care about passing a parameter here in production:</p>
+
+<pre><code class="language-Kotlin">class Task(private val contextProvider: ContextProvider = ContextProvider()) {
+
+    fun longRunningTask(callback: () -&gt; Unit) {
+
+            GlobalScope.launch(coroutineContextProvider.Background) {
+                // Do heavy lifting on the background threadpool
+
+                withContext(contextProvider.Main) {
+                    // This will run in main thread again
+                    callback.invoke()
+                }
+            }
+
+            //Code here will not run in the coroutine
+    }
+}
+</code></pre>
+
+<h1 id="testing">Testing</h1>
+
+<p>Finally we can just override our wrapper class to create a test class which runs everything on our main thread and then write a test with help of Kotlins &ldquo;runBlocking()&rdquo; function:</p>
+
+<pre><code class="language-Kotlin">
+class TestContextProvider: ContextProvider() {
+    override val Main = Dispatchers.Unconfined            
+    override val Background = Dispatchers.Unconfined            
+}
+
+class Task(private val contextProvider: ContextProvider = ContextProvider()) {
+
+    fun longRunningTask(callback: (String) -&gt; Unit) {
+
+            GlobalScope.launch(coroutineContextProvider.Background) {
+                // Do heavy lifting on the background threadpool
+
+                withContext(contextProvider.Main) {
+                    // This will run in main thread again
+                    callback.invoke()
+                }
+            }
+
+            //Code here will not run in the coroutine
+    }
+}
+
+
+class TestClass {
+
+    @Test
+    fun testOurClass() = runBlocking {
+
+            val task = Task(TestContextProvider())
+
+            taks.longRunningTask() { it: String
+                // Our code will nor run synchronously and we can verify our result here :)
+            }
+    }
+}
+</code></pre>
+
+<p>Also from the <a href="https://kotlinlang.org/docs/reference/coroutines/coroutine-context-and-dispatchers.html">Kotlin docs</a>:</p>
+
+<blockquote>
+<p>The Dispatchers.Unconfined coroutine dispatcher starts coroutine in the
+caller thread, but only until the first suspension point. After suspension
+it resumes in the thread that is fully determined by the suspending
+function that was invoked. Unconfined dispatcher is appropriate when
+coroutine does not consume CPU time nor updates any shared data (like UI)
+that is confined to a specific thread.</p>
+</blockquote>
+
+<p>From the <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/run-blocking.html">RunBlocking docs</a>:</p>
+
+<blockquote>
+<p>Runs a new coroutine and blocks the current thread interruptibly until its completion. This function should not be used from a coroutine. It is designed to bridge regular blocking code to libraries that are written in suspending style, to be used in main functions and in tests.</p>
+</blockquote>
+
+<p></br></p>
+
+<p>I hope I could help you a little bit. Please let me know if you have any further questions 👍</p>
 
           </div>
 
@@ -526,10 +625,13 @@ What is this website about?" />
   <li class="pr-0"><a href="https://www.pott.dev/tags/"><i class="fas fa-tags"></i></a></li>
   <div class="tags-sm">
     
+    <li><a href="https://www.pott.dev/tags/kotlin" role="button">kotlin </a></li>
+    
+    
+    <li><a href="https://www.pott.dev/tags/coroutines" role="button">coroutines </a></li>
+    
+    
     <li><a href="https://www.pott.dev/tags/blog" role="button">blog </a></li>
-    
-    
-    <li><a href="https://www.pott.dev/tags/me" role="button">me </a></li>
     
     
   </div>
@@ -544,16 +646,16 @@ What is this website about?" />
           <div class="row pt-3">
             <div class="col-md-6">
               
+              <a href=https://www.pott.dev/blog/2019-05/introducing-myself/ class="post-meta">Previous
+                <div class="pt-2 pb-5 d-flex">
+                  <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                  <span>Introducing myself</span>
+                </div>
+              </a>
+              
             </div>
 
             <div class="col-md-6 text-right">
-              
-              <a href=https://www.pott.dev/blog/2019-05/testing-asynchronous-code/ class="post-meta">Next
-                <div class="pt-2 pb-5 flex-reverse">
-                  <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
-                  <span>Testing asynchronous code</span>
-                </div>
-              </a>
               
             </div>
           </div>
