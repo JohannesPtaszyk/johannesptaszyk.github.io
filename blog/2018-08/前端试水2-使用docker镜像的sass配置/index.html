@@ -302,354 +302,7 @@
   <div class="row">
 
     
-
     
-    <div class="col-md-10">
-      
-
-        
-        <div class="z-depth-1  post-wrapper white-bg single-post">
-
-          <div class="post-header text-center">
-  <ul class="post-meta li-x">
-    
-    
-    <li><a href="https://www.pott.dev/categories/%E6%9D%82%E6%8A%80%E6%B5%85%E5%B0%9D"><i class="fas fa-folder-open pr-1"
-          aria-hidden="true"></i> 杂技浅尝 </a></li>
-    
-    
-    
-    
-    <li><a href="https://www.pott.dev/series/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B4"><i class="fas fa-bookmark pr-1"
-          aria-hidden="true"></i>前端试水</a></li>
-    
-    
-  </ul>
-
-  <div class="px-4 post-heading">前端试水(2) 使用docker镜像的Sass配置</div>
-
-  <ul class="post-meta li-x mt-1">
-    
-    <li>2 Aug, 2018</li>
-    
-
-    
-    <li class="middot"></li>
-    <li>6 minutes read</li>
-    
-  </ul>
-  
-
-</div>
-
-
-          <div class="post-content markdown">
-            
-
-<h2 id="前言">前言</h2>
-
-<p>半年前，由于终于将博客主题初版设计出来准备开始实施，在less和sass中纠结良久选择了sass。为了保持环境纯净性，想用docker装sass，用node-sass，试了几次中间都失败，无奈放弃。几乎半年后的今天，莫名又开始有搭建网页的欲望，于是又开始折腾。不过这次运气不错，终于折腾成功。</p>
-
-<h2 id="sass是什么">Sass是什么</h2>
-
-<p>Sass 是一个 css的预编译器。它在css语法的基础上，引入了更多的变量、规则等功能，可以帮助css的组织结构变得更合理和优雅，或者说更像一门编程语言，从而提高开发和维护效率。通俗说，就是在css上再套层更结构化的语法，帮助对样式进行组织和管理，再通过编译得到最终的css样式。</p>
-
-<p>与sass对标的是less，具体哪个更好对于初学者来说难以分辨和选择，但Bootstrap4抛弃了less转而选择sass和sass更大的社群都提供了选择了sass的理由。</p>
-
-<h3 id="sass选择">Sass选择</h3>
-
-<h4 id="sass-vs-scss">Sass vs Scss</h4>
-
-<p>Sass实际上有两种语法，针对不同的后缀名称<code>.sass</code>和<code>.scss</code>。</p>
-
-<p><code>.sass</code>是最早的语法，使用缩进而不是<code>{}</code>来表示嵌套，用换行而不是<code>;</code>来分隔属性，如下：</p>
-
-<pre><code class="language-sass">$font-stack:    Helvetica, sans-serif
-$primary-color: #333
-
-body
-  font: 100% $font-stack
-  color: $primary-color
-</code></pre>
-
-<p>另一种<code>.scss</code>的格式仅在css3的语法基础上进行扩展，如下：</p>
-
-<pre><code class="language-sass">$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
-</code></pre>
-
-<p>对于码农来说，<code>.scss</code>相对更符合习惯一些，所以之后会选择后者。</p>
-
-<h4 id="ruby-sass-vs-libsass-vs-dart-sass">Ruby Sass vs Libsass vs Dart Sass</h4>
-
-<p>在官网最下方可以看到三个不同的Sass实现。</p>
-
-<p>Ruby Sass是最早的Sass，网上很多资料都是基于ruby的，不过这个实现版本作者之后不会再更新维护了。</p>
-
-<p>Libsass是使用C进行实现的版本，所以这个版本速度最快，Sassc就是在Libsass外套了一层wrapper。不过该版本的更新相对没有那么频繁和活跃，毕竟不是主要更新的实现版本。</p>
-
-<p>Dart Sass是替代Ruby Sass的实现版本，也是现在最主要的开发版本，新的功能也会主要在该实现版本中先进行集成。</p>
-
-<h2 id="编译环境配置">编译环境配置</h2>
-
-<p>估计很少有人像我这样折腾又莫名对一些点特别执着（或者说钻牛角尖）。当初一心想用docker把所有和开发环境配置相关的整理起来，折腾node-sass的dockerfile好久以失败告终。这次终于找到一个可以用的sass环境镜像，并根据此建立了自己的docker镜像，具体配置及使用方法在<a href="#libsass-docker">Libsass Docker</a>。但由于该镜像基于libsass，一些功能并没有集成（比如<code>--watch</code>），所以又基于dart sass生成一版镜像，具体方法在<a href="#dart-sass-docker">Dart Sass Docker</a>。</p>
-
-<p>两种镜像的比较如下：</p>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Libsass Docker</th>
-<th>Dart Sass Docker</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><strong>Size</strong></td>
-<td>8.76MB</td>
-<td>680MB</td>
-</tr>
-
-<tr>
-<td><strong>Writen in</strong></td>
-<td>C</td>
-<td>JS</td>
-</tr>
-
-<tr>
-<td><strong>Compiling Speed</strong></td>
-<td>Fast</td>
-<td>Normal</td>
-</tr>
-
-<tr>
-<td><strong>Integrated with JS</strong></td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-
-<tr>
-<td><strong>Function</strong></td>
-<td>Limited</td>
-<td>Full</td>
-</tr>
-
-<tr>
-<td><strong>Update Feq &amp; Priority</strong></td>
-<td>Normal</td>
-<td>First Priority</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="libsass-docker">Libsass Docker</h3>
-
-<p>我建立了我自己的<a href="https://hub.docker.com/r/orianna/libsass/">sass镜像</a>，对应的Dockerfile<a href="https://github.com/orianna-zzo/dockerfile-repo/tree/master/front-end-docker/sass-docker/libsass-docker">在此</a>（参考了的<a href="https://hub.docker.com/r/jbergknoff/sass/">jbergknoff/sass</a>），就内容上来说基本一致，都是使用的alpine为base image，都是使用sassc和libsass。有一些细节上的区别，但可能最大的区别就是我的镜像是新建的，sassc和libsass版本较新吧。该镜像一共才8.76MB。</p>
-
-<p>在设立Dockerfile的时候纠结过是使用<code>ENTRYPOINT</code>还是<code>CMD</code>，但由于该镜像只用作Sass的编译，因此使用了前者。</p>
-
-<h4 id="libsass-docker配置">Libsass Docker配置</h4>
-
-<p>首先需要获取镜像，打开终端输入：</p>
-
-<pre><code class="language-bash">$ docker pull orianna/libsass
-</code></pre>
-
-<p>然后就可以调用docker镜像来编译sass/scss了。为了简化操作，可以使用alias设置别名并保存。</p>
-
-<p>配置需要写到配置文件，有两个选择：</p>
-
-<ul>
-<li>对全部用户生效：修改 <code>/etc/profile</code>文件</li>
-<li>对当前用户生效：修改 <code>~/.profile</code>文件 （仅针对Mac，linux大多数情况下修改 <code>~/.bashrc</code>）</li>
-</ul>
-
-<p>我将用户自定义部分还是放入了<code>~/.profile</code>文件：</p>
-
-<pre><code class="language-bash">$ vi ~/.profile
-</code></pre>
-
-<p>增加以下内容，给起个别称 <code>libsass</code>，这样之后就可以将docker镜像当做本地命令使用了，非常方便：</p>
-
-<pre><code class="language-bash"># config alias
-alias libsass=&quot;docker run -it --rm -v \$(pwd):/sass -v \$(pwd):/output orianna/libsass:latest&quot;
-</code></pre>
-
-<p>记得source一下，使配置文件立即生效：</p>
-
-<pre><code class="language-bash">$ source ~/.profile
-</code></pre>
-
-<p>现在开始就可以直接使用 <code>libsass</code> 来启动sass的docker镜像了。</p>
-
-<h4 id="libsass-docker使用方法">Libsass Docker使用方法</h4>
-
-<p>由于已经设置了alias，所以直接按以下方式即可编译sass/scss文件为css文件：</p>
-
-<pre><code class="language-bash">$ libsass ORIGIN.sass DEST.css
-</code></pre>
-
-<p>需要注意的是，工作目录为当前目录，所以基本就可以当做本地的命令执行了，很方便。</p>
-
-<p>如果需要执行该容器中其他命令，则需要在docker命令中使用<code>--entrypoint</code>进行覆盖，方法如下：</p>
-
-<pre><code class="language-shell">$ docker run --name my-sass -it --rm --entrypoint sh orianna/libsass
-</code></pre>
-
-<h3 id="dart-sass-docker">Dart Sass Docker</h3>
-
-<p>由于Sassc缺少一些功能，而最新最全的功能都会在Dart Sass上，因此又研究一下建一个dart-sass的镜像使用。<a href="https://github.com/sass/dart-sass">Dart Sass的github</a>给了不少安装方法，本想在alpine上用standalone版的，但总是报错说找不到dart，于是直接用了node作为base image。想用node:alpine减少镜像的大小，但结果没有建成，所以现在镜像有680MB。</p>
-
-<h4 id="dart-sass-docker配置">Dart Sass Docker配置</h4>
-
-<p>首先需要获取镜像，打开终端输入：</p>
-
-<pre><code class="language-bash">$ docker pull orianna/dart-sass
-</code></pre>
-
-<p>然后就可以调用docker镜像来编译sass/scss了。为了简化操作，可以使用alias设置别名并保存。</p>
-
-<p>配置需要写到配置文件，有两个选择：</p>
-
-<ul>
-<li>对全部用户生效：修改 <code>/etc/profile</code>文件</li>
-<li>对当前用户生效：修改 <code>~/.profile</code>文件 （仅针对Mac，linux大多数情况下修改 <code>~/.bashrc</code>）</li>
-</ul>
-
-<p>我将用户自定义部分还是放入了<code>~/.profile</code>文件：</p>
-
-<pre><code class="language-bash">$ vi ~/.profile
-</code></pre>
-
-<p>增加以下内容，给起个别称 <code>sass</code>，这样之后就可以将docker镜像当做本地命令使用了，非常方便：</p>
-
-<pre><code class="language-bash"># config alias
-alias sass=&quot;docker run -it --rm -v \$(pwd):/sass -v \$(pwd):/output orianna/dart-sass:latest&quot;
-</code></pre>
-
-<p>记得source一下，使配置文件立即生效：</p>
-
-<pre><code class="language-bash">$ source ~/.profile
-</code></pre>
-
-<p>现在开始就可以直接使用 <code>sass</code> 来启动sass的docker镜像了。</p>
-
-<h4 id="dart-sass-docker使用方法">Dart Sass Docker使用方法</h4>
-
-<p>由于已经设置了alias，所以直接按以下方式即可编译sass/scss文件为css文件：</p>
-
-<pre><code class="language-bash">$ sass ORIGIN.sass DEST.css
-</code></pre>
-
-<p>需要注意的是，工作目录为当前目录，所以基本就可以当做本地的命令执行了，很方便。另外，尽管dart-sass已经集成了watch的功能，但我现在的镜像不知道为什么一用就卡在那里……</p>
-
-<p>如果需要执行该容器中其他命令，则需要在docker命令中使用<code>--entrypoint</code>进行覆盖，方法如下：</p>
-
-<pre><code class="language-shell">$ docker run --name my-sass -it --rm --entrypoint sh orianna/dart-sass
-</code></pre>
-
-<h2 id="resource资源链接汇总">Resource资源链接汇总</h2>
-
-<p>我建立的docker for Sass开发镜像:  <a href="https://hub.docker.com/r/orianna/libsass/">Libsass docker镜像</a>、<a href="https://hub.docker.com/r/orianna/dart-sass/">Dart Sass docker镜像</a>、<a href="https://github.com/orianna-zzo/dockerfile-repo/tree/master/front-end-docker/sass-docker">Docker for Sass的Dockerfile</a>。</p>
-
-<p><a href="http://sass-lang.com">Sass官网</a>、<a href="https://github.com/sass/libsass">Libsass的github</a>、<a href="https://github.com/sass/dart-sass">Dart Sass的github</a></p>
-
-<h2 id="版本控制">版本控制</h2>
-
-<table>
-<thead>
-<tr>
-<th>Version</th>
-<th>Action</th>
-<th>Time</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>1.0</td>
-<td>Init</td>
-<td>2018-08-02</td>
-</tr>
-</tbody>
-</table>
-
-          </div>
-
-          
-          <div class="row">
-            <div class="col-md-8">
-              
-              <div class="mb-5">
-                <div class="li-x div-x post-meta">
-  <li class="pr-0"><a href="https://www.pott.dev/tags/"><i class="fas fa-tags"></i></a></li>
-  <div class="tags-sm">
-    
-    <li><a href="https://www.pott.dev/tags/%E5%89%8D%E7%AB%AF" role="button">前端 </a></li>
-    
-    
-    <li><a href="https://www.pott.dev/tags/sass" role="button">sass </a></li>
-    
-    
-    <li><a href="https://www.pott.dev/tags/docker" role="button">docker </a></li>
-    
-    
-    <li><a href="https://www.pott.dev/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE" role="button">环境配置 </a></li>
-    
-    
-    <li><a href="https://www.pott.dev/tags/css" role="button">css </a></li>
-    
-    
-  </div>
-</div>
-              </div>
-              
-            </div>
-            
-          </div>
-          
-
-          
-          <div class="row pt-3">
-            <div class="col-md-6">
-              
-              <a href=https://www.pott.dev/blog/2018-08/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B41-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/ class="post-meta">Previous
-                <div class="pt-2 pb-5 d-flex">
-                  <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
-                  <span>前端试水(1) 前端技术路线</span>
-                </div>
-              </a>
-              
-            </div>
-
-            <div class="col-md-6 text-right">
-              
-              <a href=https://www.pott.dev/blog/2018-08/%E9%9F%B3%E4%B9%90%E5%89%A7catrepo/ class="post-meta">Next
-                <div class="pt-2 pb-5 flex-reverse">
-                  <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
-                  <span>音乐剧《Cat》repo</span>
-                </div>
-              </a>
-              
-            </div>
-          </div>
-
-          
-
-        </div>
-        
-
-      </div>
-      
-
-      
 
 
 
@@ -1048,6 +701,351 @@ alias sass=&quot;docker run -it --rm -v \$(pwd):/sass -v \$(pwd):/output orianna
 </div>
 
 
+
+    
+    <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center">
+  <ul class="post-meta li-x">
+    
+    
+    <li><a href="https://www.pott.dev/categories/%E6%9D%82%E6%8A%80%E6%B5%85%E5%B0%9D"><i class="fas fa-folder-open pr-1"
+          aria-hidden="true"></i> 杂技浅尝 </a></li>
+    
+    
+    
+    
+    <li><a href="https://www.pott.dev/series/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B4"><i class="fas fa-bookmark pr-1"
+          aria-hidden="true"></i>前端试水</a></li>
+    
+    
+  </ul>
+
+  <div class="px-4 post-heading">前端试水(2) 使用docker镜像的Sass配置</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+    <li>2 Aug, 2018</li>
+    
+
+    
+    <li class="middot"></li>
+    <li>6 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<h2 id="前言">前言</h2>
+
+<p>半年前，由于终于将博客主题初版设计出来准备开始实施，在less和sass中纠结良久选择了sass。为了保持环境纯净性，想用docker装sass，用node-sass，试了几次中间都失败，无奈放弃。几乎半年后的今天，莫名又开始有搭建网页的欲望，于是又开始折腾。不过这次运气不错，终于折腾成功。</p>
+
+<h2 id="sass是什么">Sass是什么</h2>
+
+<p>Sass 是一个 css的预编译器。它在css语法的基础上，引入了更多的变量、规则等功能，可以帮助css的组织结构变得更合理和优雅，或者说更像一门编程语言，从而提高开发和维护效率。通俗说，就是在css上再套层更结构化的语法，帮助对样式进行组织和管理，再通过编译得到最终的css样式。</p>
+
+<p>与sass对标的是less，具体哪个更好对于初学者来说难以分辨和选择，但Bootstrap4抛弃了less转而选择sass和sass更大的社群都提供了选择了sass的理由。</p>
+
+<h3 id="sass选择">Sass选择</h3>
+
+<h4 id="sass-vs-scss">Sass vs Scss</h4>
+
+<p>Sass实际上有两种语法，针对不同的后缀名称<code>.sass</code>和<code>.scss</code>。</p>
+
+<p><code>.sass</code>是最早的语法，使用缩进而不是<code>{}</code>来表示嵌套，用换行而不是<code>;</code>来分隔属性，如下：</p>
+
+<pre><code class="language-sass">$font-stack:    Helvetica, sans-serif
+$primary-color: #333
+
+body
+  font: 100% $font-stack
+  color: $primary-color
+</code></pre>
+
+<p>另一种<code>.scss</code>的格式仅在css3的语法基础上进行扩展，如下：</p>
+
+<pre><code class="language-sass">$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+</code></pre>
+
+<p>对于码农来说，<code>.scss</code>相对更符合习惯一些，所以之后会选择后者。</p>
+
+<h4 id="ruby-sass-vs-libsass-vs-dart-sass">Ruby Sass vs Libsass vs Dart Sass</h4>
+
+<p>在官网最下方可以看到三个不同的Sass实现。</p>
+
+<p>Ruby Sass是最早的Sass，网上很多资料都是基于ruby的，不过这个实现版本作者之后不会再更新维护了。</p>
+
+<p>Libsass是使用C进行实现的版本，所以这个版本速度最快，Sassc就是在Libsass外套了一层wrapper。不过该版本的更新相对没有那么频繁和活跃，毕竟不是主要更新的实现版本。</p>
+
+<p>Dart Sass是替代Ruby Sass的实现版本，也是现在最主要的开发版本，新的功能也会主要在该实现版本中先进行集成。</p>
+
+<h2 id="编译环境配置">编译环境配置</h2>
+
+<p>估计很少有人像我这样折腾又莫名对一些点特别执着（或者说钻牛角尖）。当初一心想用docker把所有和开发环境配置相关的整理起来，折腾node-sass的dockerfile好久以失败告终。这次终于找到一个可以用的sass环境镜像，并根据此建立了自己的docker镜像，具体配置及使用方法在<a href="#libsass-docker">Libsass Docker</a>。但由于该镜像基于libsass，一些功能并没有集成（比如<code>--watch</code>），所以又基于dart sass生成一版镜像，具体方法在<a href="#dart-sass-docker">Dart Sass Docker</a>。</p>
+
+<p>两种镜像的比较如下：</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Libsass Docker</th>
+<th>Dart Sass Docker</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Size</strong></td>
+<td>8.76MB</td>
+<td>680MB</td>
+</tr>
+
+<tr>
+<td><strong>Writen in</strong></td>
+<td>C</td>
+<td>JS</td>
+</tr>
+
+<tr>
+<td><strong>Compiling Speed</strong></td>
+<td>Fast</td>
+<td>Normal</td>
+</tr>
+
+<tr>
+<td><strong>Integrated with JS</strong></td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+
+<tr>
+<td><strong>Function</strong></td>
+<td>Limited</td>
+<td>Full</td>
+</tr>
+
+<tr>
+<td><strong>Update Feq &amp; Priority</strong></td>
+<td>Normal</td>
+<td>First Priority</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="libsass-docker">Libsass Docker</h3>
+
+<p>我建立了我自己的<a href="https://hub.docker.com/r/orianna/libsass/">sass镜像</a>，对应的Dockerfile<a href="https://github.com/orianna-zzo/dockerfile-repo/tree/master/front-end-docker/sass-docker/libsass-docker">在此</a>（参考了的<a href="https://hub.docker.com/r/jbergknoff/sass/">jbergknoff/sass</a>），就内容上来说基本一致，都是使用的alpine为base image，都是使用sassc和libsass。有一些细节上的区别，但可能最大的区别就是我的镜像是新建的，sassc和libsass版本较新吧。该镜像一共才8.76MB。</p>
+
+<p>在设立Dockerfile的时候纠结过是使用<code>ENTRYPOINT</code>还是<code>CMD</code>，但由于该镜像只用作Sass的编译，因此使用了前者。</p>
+
+<h4 id="libsass-docker配置">Libsass Docker配置</h4>
+
+<p>首先需要获取镜像，打开终端输入：</p>
+
+<pre><code class="language-bash">$ docker pull orianna/libsass
+</code></pre>
+
+<p>然后就可以调用docker镜像来编译sass/scss了。为了简化操作，可以使用alias设置别名并保存。</p>
+
+<p>配置需要写到配置文件，有两个选择：</p>
+
+<ul>
+<li>对全部用户生效：修改 <code>/etc/profile</code>文件</li>
+<li>对当前用户生效：修改 <code>~/.profile</code>文件 （仅针对Mac，linux大多数情况下修改 <code>~/.bashrc</code>）</li>
+</ul>
+
+<p>我将用户自定义部分还是放入了<code>~/.profile</code>文件：</p>
+
+<pre><code class="language-bash">$ vi ~/.profile
+</code></pre>
+
+<p>增加以下内容，给起个别称 <code>libsass</code>，这样之后就可以将docker镜像当做本地命令使用了，非常方便：</p>
+
+<pre><code class="language-bash"># config alias
+alias libsass=&quot;docker run -it --rm -v \$(pwd):/sass -v \$(pwd):/output orianna/libsass:latest&quot;
+</code></pre>
+
+<p>记得source一下，使配置文件立即生效：</p>
+
+<pre><code class="language-bash">$ source ~/.profile
+</code></pre>
+
+<p>现在开始就可以直接使用 <code>libsass</code> 来启动sass的docker镜像了。</p>
+
+<h4 id="libsass-docker使用方法">Libsass Docker使用方法</h4>
+
+<p>由于已经设置了alias，所以直接按以下方式即可编译sass/scss文件为css文件：</p>
+
+<pre><code class="language-bash">$ libsass ORIGIN.sass DEST.css
+</code></pre>
+
+<p>需要注意的是，工作目录为当前目录，所以基本就可以当做本地的命令执行了，很方便。</p>
+
+<p>如果需要执行该容器中其他命令，则需要在docker命令中使用<code>--entrypoint</code>进行覆盖，方法如下：</p>
+
+<pre><code class="language-shell">$ docker run --name my-sass -it --rm --entrypoint sh orianna/libsass
+</code></pre>
+
+<h3 id="dart-sass-docker">Dart Sass Docker</h3>
+
+<p>由于Sassc缺少一些功能，而最新最全的功能都会在Dart Sass上，因此又研究一下建一个dart-sass的镜像使用。<a href="https://github.com/sass/dart-sass">Dart Sass的github</a>给了不少安装方法，本想在alpine上用standalone版的，但总是报错说找不到dart，于是直接用了node作为base image。想用node:alpine减少镜像的大小，但结果没有建成，所以现在镜像有680MB。</p>
+
+<h4 id="dart-sass-docker配置">Dart Sass Docker配置</h4>
+
+<p>首先需要获取镜像，打开终端输入：</p>
+
+<pre><code class="language-bash">$ docker pull orianna/dart-sass
+</code></pre>
+
+<p>然后就可以调用docker镜像来编译sass/scss了。为了简化操作，可以使用alias设置别名并保存。</p>
+
+<p>配置需要写到配置文件，有两个选择：</p>
+
+<ul>
+<li>对全部用户生效：修改 <code>/etc/profile</code>文件</li>
+<li>对当前用户生效：修改 <code>~/.profile</code>文件 （仅针对Mac，linux大多数情况下修改 <code>~/.bashrc</code>）</li>
+</ul>
+
+<p>我将用户自定义部分还是放入了<code>~/.profile</code>文件：</p>
+
+<pre><code class="language-bash">$ vi ~/.profile
+</code></pre>
+
+<p>增加以下内容，给起个别称 <code>sass</code>，这样之后就可以将docker镜像当做本地命令使用了，非常方便：</p>
+
+<pre><code class="language-bash"># config alias
+alias sass=&quot;docker run -it --rm -v \$(pwd):/sass -v \$(pwd):/output orianna/dart-sass:latest&quot;
+</code></pre>
+
+<p>记得source一下，使配置文件立即生效：</p>
+
+<pre><code class="language-bash">$ source ~/.profile
+</code></pre>
+
+<p>现在开始就可以直接使用 <code>sass</code> 来启动sass的docker镜像了。</p>
+
+<h4 id="dart-sass-docker使用方法">Dart Sass Docker使用方法</h4>
+
+<p>由于已经设置了alias，所以直接按以下方式即可编译sass/scss文件为css文件：</p>
+
+<pre><code class="language-bash">$ sass ORIGIN.sass DEST.css
+</code></pre>
+
+<p>需要注意的是，工作目录为当前目录，所以基本就可以当做本地的命令执行了，很方便。另外，尽管dart-sass已经集成了watch的功能，但我现在的镜像不知道为什么一用就卡在那里……</p>
+
+<p>如果需要执行该容器中其他命令，则需要在docker命令中使用<code>--entrypoint</code>进行覆盖，方法如下：</p>
+
+<pre><code class="language-shell">$ docker run --name my-sass -it --rm --entrypoint sh orianna/dart-sass
+</code></pre>
+
+<h2 id="resource资源链接汇总">Resource资源链接汇总</h2>
+
+<p>我建立的docker for Sass开发镜像:  <a href="https://hub.docker.com/r/orianna/libsass/">Libsass docker镜像</a>、<a href="https://hub.docker.com/r/orianna/dart-sass/">Dart Sass docker镜像</a>、<a href="https://github.com/orianna-zzo/dockerfile-repo/tree/master/front-end-docker/sass-docker">Docker for Sass的Dockerfile</a>。</p>
+
+<p><a href="http://sass-lang.com">Sass官网</a>、<a href="https://github.com/sass/libsass">Libsass的github</a>、<a href="https://github.com/sass/dart-sass">Dart Sass的github</a></p>
+
+<h2 id="版本控制">版本控制</h2>
+
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Action</th>
+<th>Time</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Init</td>
+<td>2018-08-02</td>
+</tr>
+</tbody>
+</table>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+              
+              <div class="mb-5">
+                <div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://www.pott.dev/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+    <li><a href="https://www.pott.dev/tags/%E5%89%8D%E7%AB%AF" role="button">前端 </a></li>
+    
+    
+    <li><a href="https://www.pott.dev/tags/sass" role="button">sass </a></li>
+    
+    
+    <li><a href="https://www.pott.dev/tags/docker" role="button">docker </a></li>
+    
+    
+    <li><a href="https://www.pott.dev/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE" role="button">环境配置 </a></li>
+    
+    
+    <li><a href="https://www.pott.dev/tags/css" role="button">css </a></li>
+    
+    
+  </div>
+</div>
+              </div>
+              
+            </div>
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+              <a href=https://www.pott.dev/blog/2018-08/%E5%89%8D%E7%AB%AF%E8%AF%95%E6%B0%B41-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF/ class="post-meta">Previous
+                <div class="pt-2 pb-5 d-flex">
+                  <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                  <span>前端试水(1) 前端技术路线</span>
+                </div>
+              </a>
+              
+            </div>
+
+            <div class="col-md-6 text-right">
+              
+              <a href=https://www.pott.dev/blog/2018-08/%E9%9F%B3%E4%B9%90%E5%89%A7catrepo/ class="post-meta">Next
+                <div class="pt-2 pb-5 flex-reverse">
+                  <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                  <span>音乐剧《Cat》repo</span>
+                </div>
+              </a>
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
 
     </div>
     
