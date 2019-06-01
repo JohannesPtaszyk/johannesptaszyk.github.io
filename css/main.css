@@ -108,7 +108,7 @@ a:active .active-color  {
 
   /* Non standard for WebKit */
   word-break: break-word;
-  
+
   -webkit-hyphens: auto;
    -moz-hyphens: auto;
         hyphens: auto;
@@ -231,6 +231,16 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 1.25rem;
   margin-left: 0%;
   margin-bottom: 2rem;
+  
+  -ms-word-break: break-all;
+  word-break: break-all;
+
+  /* Non standard for WebKit */
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
 }
 
 
@@ -706,7 +716,7 @@ toc-nav  scrollspy
 } 
 
 .toc-nav .nav-item, .toc-nav .nav-link {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.2rem;
   padding: 0px 8px;
   margin-top: 2px;
