@@ -17,12 +17,11 @@
       <pubDate>Fri, 31 May 2019 21:29:44 +0200</pubDate>
       
       <guid>https://www.pott.dev/blog/2019-05/testing-asynchronous-code/</guid>
-      <description>From time to time developers must write asynchronous code. This can for example be to access the database or make a network call.
-Writing asynchronous code is getting esier and easier. Languages and frameworks provide better tools and constructs than ever.
+      <description>From time to time developers must write asynchronous code. This can for example be to access a database or make a network call.
+Writing asynchronous code is getting easier and easier. And Languages and frameworks provide better tools than ever - What a time to be a developer!.
 There is only one thing, which still remains true for the most cases:
  Testing asynchronous code in isolation can be really difficult.
- We will make it look easy with a few simple tricks. I promise!
-Coroutines For a while now we can use Kotlin Coroutines.</description>
+ We will make it look easy for Kotlin with a simple trick.</description>
     </item>
     
   </channel>
