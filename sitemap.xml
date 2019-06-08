@@ -15,14 +15,14 @@
   </url>
   
   <url>
-    <loc>https://www.pott.dev/blog/2019-06/every-office-should-have-a-whiteboard/</loc>
-    <lastmod>2019-06-08T17:35:23+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.pott.dev/tags/</loc>
     <lastmod>2019-06-08T17:35:23+02:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/blog/2019-06/whiteboards-are-underrated/</loc>
+    <lastmod>2019-06-08T17:35:23+02:00</lastmod>
   </url>
   
   <url>
@@ -32,7 +32,7 @@
   </url>
   
   <url>
-    <loc>https://www.pott.dev/categories/personal/</loc>
+    <loc>https://www.pott.dev/categories/development-communication/</loc>
     <lastmod>2019-06-08T17:35:23+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -85,6 +85,12 @@
   
   <url>
     <loc>https://www.pott.dev/tags/me/</loc>
+    <lastmod>2019-05-31T16:24:21+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pott.dev/categories/personal/</loc>
     <lastmod>2019-05-31T16:24:21+02:00</lastmod>
     <priority>0</priority>
   </url>
