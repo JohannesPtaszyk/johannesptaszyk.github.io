@@ -10,32 +10,26 @@
     
     <meta name="author" content="Johannes">
     <meta name="description"
-        content="From time to time developers must write asynchronous code. This can for example be to access a database or make a network call.
-Writing asynchronous code is getting easier and easier. And Languages and frameworks provide better tools than ever - What a time to be a developer!.
-There is only one thing, which still remains true for the most cases:
- Testing asynchronous code in isolation can be really difficult.
- We will make it look easy for Kotlin with a simple trick.">
+        content="From time to time your collegues will ask you questions, you will have discussions or you just want to point out this insanely good idea which will finally solve all the problems the team was facing for such a long time. You are really trying your best to get your opposites to follow you along while explaining, but somehow, however and how often you try to explain it, they will not understand it.
+Everyone know this situation: you try your best to explain, but noone understands you.">
 
-    <meta property="og:title" content="Testing asynchronous code" />
-<meta property="og:description" content="From time to time developers must write asynchronous code. This can for example be to access a database or make a network call.
-Writing asynchronous code is getting easier and easier. And Languages and frameworks provide better tools than ever - What a time to be a developer!.
-There is only one thing, which still remains true for the most cases:
- Testing asynchronous code in isolation can be really difficult.
- We will make it look easy for Kotlin with a simple trick." />
+    <meta property="og:title" content="Every office should have a whiteboard" />
+<meta property="og:description" content="From time to time your collegues will ask you questions, you will have discussions or you just want to point out this insanely good idea which will finally solve all the problems the team was facing for such a long time. You are really trying your best to get your opposites to follow you along while explaining, but somehow, however and how often you try to explain it, they will not understand it.
+Everyone know this situation: you try your best to explain, but noone understands you." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.pott.dev/blog/2019-05/testing-asynchronous-code/" />
-<meta property="article:published_time" content="2019-05-31T21:29:44&#43;02:00"/>
-<meta property="article:modified_time" content="2019-05-31T21:29:44&#43;02:00"/>
+<meta property="og:url" content="https://www.pott.dev/blog/2019-06/every-office-should-have-a-whiteboard/" />
+<meta property="article:published_time" content="2019-06-08T17:35:23&#43;02:00"/>
+<meta property="article:modified_time" content="2019-06-08T17:35:23&#43;02:00"/>
 
 
     <title>
         
-         Testing asynchronous code | pott.dev
+         Every office should have a whiteboard | pott.dev
         
         
     </title>
 
-    <link rel="canonical" href="https://www.pott.dev/blog/2019-05/testing-asynchronous-code/">
+    <link rel="canonical" href="https://www.pott.dev/blog/2019-06/every-office-should-have-a-whiteboard/">
 
     
     
@@ -349,8 +343,8 @@ There is only one thing, which still remains true for the most cases:
 				
 
 				<li class="nav-item">
-					<a class="nav-link" href="#coroutines">
-						Coroutines
+					<a class="nav-link" href="#1-visually-explain">
+						1. Visually explain
 					</a>
 				</li>
 
@@ -371,8 +365,8 @@ There is only one thing, which still remains true for the most cases:
 				
 
 				<li class="nav-item">
-					<a class="nav-link" href="#wrapping">
-						Wrapping
+					<a class="nav-link" href="#2-communicate-and-interact">
+						2. Communicate and interact
 					</a>
 				</li>
 
@@ -393,8 +387,30 @@ There is only one thing, which still remains true for the most cases:
 				
 
 				<li class="nav-item">
-					<a class="nav-link" href="#testing">
-						Testing
+					<a class="nav-link" href="#3-brainstorm">
+						3. Brainstorm
+					</a>
+				</li>
+
+				
+				
+			</ul>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<ul class="nav">
+				
+				
+
+				<li class="nav-item">
+					<a class="nav-link" href="#so-why-are-they-underated">
+						So why are they underated?
 					</a>
 				</li>
 
@@ -425,28 +441,28 @@ There is only one thing, which still remains true for the most cases:
   <ul class="post-meta li-x">
     
     
-    <li><a href="https://www.pott.dev/categories/kotlin"><i class="fas fa-folder-open pr-1"
-          aria-hidden="true"></i> kotlin </a></li>
+    <li><a href="https://www.pott.dev/categories/personal"><i class="fas fa-folder-open pr-1"
+          aria-hidden="true"></i> personal </a></li>
     
     
     
   </ul>
 
-  <div class="px-4 post-heading">Testing asynchronous code</div>
+  <div class="px-4 post-heading">Every office should have a whiteboard</div>
 
   <ul class="post-meta li-x mt-1">
     
-    <li>31 May, 2019</li>
+    <li>8 Jun, 2019</li>
     
 
     
     <li class="middot"></li>
-    <li>4 minutes read</li>
+    <li>2 minutes read</li>
     
   </ul>
   
   <div class="view">
-    <img src="https://www.pott.dev/images/blog/2019-05/UnitTestCoroutinesTitle.jpg" />
+    <img src="https://www.pott.dev/images/blog/2019-06/whiteboard.jpg" />
   </div>
   
 
@@ -456,171 +472,41 @@ There is only one thing, which still remains true for the most cases:
           <div class="post-content markdown">
             
 
-<p>From time to time developers must write asynchronous code. This can for example be to access a database or make a network call.</p>
+<p>From time to time your collegues will ask you questions, you will have discussions or you just want to point out this insanely good idea which will finally solve all the problems the team was facing for such a long time.
+You are really trying your best to get your opposites to follow you along while explaining, but somehow, however and how often you try to explain it, they will not understand it.</p>
 
-<p>Writing asynchronous code is getting easier and easier. And Languages and frameworks provide better tools than ever - What a time to be a developer!.</p>
+<p>Everyone know this situation: you try your best to explain, but noone understands you.</p>
 
-<p>There is only one thing, which still remains true for the most cases:</p>
+<p>From my point of view there is an easy fix for this: Whiteboards.</p>
 
-<blockquote>
-<p>Testing asynchronous code in isolation can be really difficult.</p>
-</blockquote>
+<h2 id="1-visually-explain">1. Visually explain</h2>
 
-<p>We will make it look easy for Kotlin with a simple trick.</p>
+<p>Depending on what you want to explain you can go with different approaches here:</p>
 
-<h1 id="coroutines">Coroutines</h1>
+<ul>
+<li>Explaining what this part of the code does:</br>
+Draw a flow chart</li>
+<li>Software states:</br>
+Draw a table with the different states, when they will be changed and what will happen for each one of them</li>
+<li>UI/UX:</br>
+Draw mockups</li>
+</ul>
 
-<p>For a while now, we can use Kotlin Coroutines. They provide an easy way to write async code that will help us not to block our main thread.</p>
+<h2 id="2-communicate-and-interact">2. Communicate and interact</h2>
 
-<p>Simple coroutine example:</p>
+<p>Whiteboards are interactive tools! Someone can start explaining his idea and other people can just join.</p>
 
-<pre><code class="language-Kotlin">class Task {
+<p>Give everyone a pen and just start drawing!</p>
 
-    fun longRunningTask() {
+<h2 id="3-brainstorm">3. Brainstorm</h2>
 
-            GlobalScope.launch() {
-                // This code is run in the background
-                
-                // Coroutines will run with Dispatchers.Default
-            }
+<p>Just walk up and add your thoughts to a mindmap, a list or anything else. Improve upon on it. Change it. There are almost no boundries on what you can do.</p>
 
-            //Code here will run on the main thread
-    }
-}
-</code></pre>
+<h2 id="so-why-are-they-underated">So why are they underated?</h2>
 
-<p>But we can go a little bit further on that example:</p>
+<p>They are underated in the sense that a lot of people just got one in theire office and use it from day to day, but seldomly appriciate how good of a tool it is.</p>
 
-<pre><code class="language-Kotlin">class Task {
-
-    fun longRunningTask(callback: () -&gt; Unit) {
-
-            GlobalScope.launch(Dispatchers.Default) {
-                // Do heavy lifting on the background threadpool
-
-                withContext(Dispatchers.Main) {
-                    // This will run in main thread again
-                    callback.invoke()
-                }
-            }
-
-            //Code here will not run in the coroutine
-    }
-}
-</code></pre>
-
-<p>In the example above we make use of the concept of coroutine context:
-Every coroutine launches in a context. From the <a href="https://kotlinlang.org/docs/reference/coroutines/coroutine-context-and-dispatchers.html">Kotlin doc</a>:</p>
-
-<blockquote>
-<p>Coroutines always execute in some context which is represented by the value
-of CoroutineContext type, defined in the Kotlin standard library.</p>
-
-<p>The coroutine context is a set of various elements. The main elements are
-the Job of the coroutine, which we&rsquo;ve seen before, and its dispatcher
-which is covered in this section.</p>
-</blockquote>
-
-<p>We currently would have no real way to run this in a test succesfully, because our unit test would be finished before the there was an oportunity for the coroutine to call the callback and there would be no way to verify any behavior.</p>
-
-<p>To now accomplish this we will have to write a little bit of code.</p>
-
-<h1 id="wrapping">Wrapping</h1>
-
-<p><img src="https://www.pott.dev/images/blog/2019-05/UnitTestCoroutinesWrap.jpg" alt="image" /></p>
-
-<p>We will now make use of a wrapper class that will provide our context for the coroutines.</p>
-
-<pre><code class="language-Kotlin">
-open class ContextProvider {
-    open val Main = Dispatchers.Main
-    open val Background = Dispatchers.Default
-}
-
-</code></pre>
-
-<p>And then we will use this class with help from a default parameter, so we do not have to care about passing a parameter here in production:</p>
-
-<pre><code class="language-Kotlin">class Task(private val contextProvider: ContextProvider = ContextProvider()) {
-
-    fun longRunningTask(callback: () -&gt; Unit) {
-
-            GlobalScope.launch(coroutineContextProvider.Background) {
-                // Do heavy lifting on the background threadpool
-
-                withContext(contextProvider.Main) {
-                    // This will run in main thread again
-                    callback.invoke()
-                }
-            }
-
-            //Code here will not run in the coroutine
-    }
-}
-</code></pre>
-
-<h1 id="testing">Testing</h1>
-
-<p>Finally we can just override our wrapper class to create a test class which runs everything on our main thread and then write a test with help of Kotlins &ldquo;runBlocking()&rdquo; function:</p>
-
-<pre><code class="language-Kotlin">
-class TestContextProvider: ContextProvider() {
-    override val Main = Dispatchers.Unconfined            
-    override val Background = Dispatchers.Unconfined            
-}
-
-class Task(private val contextProvider: ContextProvider = ContextProvider()) {
-
-    fun longRunningTask(callback: (String) -&gt; Unit) {
-
-            GlobalScope.launch(coroutineContextProvider.Background) {
-                // Do heavy lifting on the background threadpool
-
-                withContext(contextProvider.Main) {
-                    // This will run in main thread again
-                    callback.invoke()
-                }
-            }
-
-            //Code here will not run in the coroutine
-    }
-}
-
-
-class TestClass {
-
-    @Test
-    fun testOurClass() = runBlocking {
-
-            val task = Task(TestContextProvider())
-
-            taks.longRunningTask() { it: String
-                // Our code will nor run synchronously and we can verify our result here :)
-            }
-    }
-}
-</code></pre>
-
-<p>Also from the <a href="https://kotlinlang.org/docs/reference/coroutines/coroutine-context-and-dispatchers.html">Kotlin docs</a>:</p>
-
-<blockquote>
-<p>The Dispatchers.Unconfined coroutine dispatcher starts coroutine in the
-caller thread, but only until the first suspension point. After suspension
-it resumes in the thread that is fully determined by the suspending
-function that was invoked. Unconfined dispatcher is appropriate when
-coroutine does not consume CPU time nor updates any shared data (like UI)
-that is confined to a specific thread.</p>
-</blockquote>
-
-<p>From the <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/run-blocking.html">RunBlocking docs</a>:</p>
-
-<blockquote>
-<p>Runs a new coroutine and blocks the current thread interruptibly until its completion. This function should not be used from a coroutine. It is designed to bridge regular blocking code to libraries that are written in suspending style, to be used in main functions and in tests.</p>
-</blockquote>
-
-<p></br></p>
-
-<p>I hope I could help you a little bit. Please let me know if you have any further questions 👍</p>
+<p>A few days ago I realized that and that is why I wanted to share it with the world 😜</p>
 
           </div>
 
@@ -633,13 +519,10 @@ that is confined to a specific thread.</p>
   <li class="pr-0"><a href="https://www.pott.dev/tags/"><i class="fas fa-tags"></i></a></li>
   <div class="tags-sm">
     
-    <li><a href="https://www.pott.dev/tags/kotlin" role="button">kotlin </a></li>
+    <li><a href="https://www.pott.dev/tags/workflow" role="button">workflow </a></li>
     
     
-    <li><a href="https://www.pott.dev/tags/coroutines" role="button">coroutines </a></li>
-    
-    
-    <li><a href="https://www.pott.dev/tags/blog" role="button">blog </a></li>
+    <li><a href="https://www.pott.dev/tags/communication" role="button">communication </a></li>
     
     
   </div>
@@ -654,23 +537,16 @@ that is confined to a specific thread.</p>
           <div class="row pt-3">
             <div class="col-md-6">
               
-              <a href=https://www.pott.dev/blog/2019-05/introducing-myself/ class="post-meta">Previous
+              <a href=https://www.pott.dev/blog/2019-05/testing-asynchronous-code/ class="post-meta">Previous
                 <div class="pt-2 pb-5 d-flex">
                   <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
-                  <span>Introducing myself</span>
+                  <span>Testing asynchronous code</span>
                 </div>
               </a>
               
             </div>
 
             <div class="col-md-6 text-right">
-              
-              <a href=https://www.pott.dev/blog/2019-06/every-office-should-have-a-whiteboard/ class="post-meta">Next
-                <div class="pt-2 pb-5 flex-reverse">
-                  <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
-                  <span>Every office should have a whiteboard</span>
-                </div>
-              </a>
               
             </div>
           </div>
@@ -711,12 +587,12 @@ text-align: center;
 </style>
 
 <span style="color: silver;">Share on: </span><div id="share-buttons">
-<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/www.pott.dev\/blog\/2019-05\/testing-asynchronous-code\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
-<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/intent/tweet?text=https:\/\/www.pott.dev\/blog\/2019-05\/testing-asynchronous-code\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
-<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/www.pott.dev\/blog\/2019-05\/testing-asynchronous-code\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/www.pott.dev\/blog\/2019-06\/every-office-should-have-a-whiteboard\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/intent/tweet?text=https:\/\/www.pott.dev\/blog\/2019-06\/every-office-should-have-a-whiteboard\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/www.pott.dev\/blog\/2019-06\/every-office-should-have-a-whiteboard\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
 
-<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/www.pott.dev\/blog\/2019-05\/testing-asynchronous-code\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
-<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/www.pott.dev\/blog\/2019-05\/testing-asynchronous-code\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/www.pott.dev\/blog\/2019-06\/every-office-should-have-a-whiteboard\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/www.pott.dev\/blog\/2019-06\/every-office-should-have-a-whiteboard\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
 </div>
           </div>
 
