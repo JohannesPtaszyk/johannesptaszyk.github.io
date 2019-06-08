@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>communication on pott.dev</title>
+    <link>https://www.pott.dev/categories/communication/</link>
+    <description>Recent content in communication on pott.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Jun 2019 17:35:23 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.pott.dev/categories/communication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Whiteboards are underrated!</title>
+      <link>https://www.pott.dev/blog/2019-06/whiteboards-are-underrated/</link>
+      <pubDate>Sat, 08 Jun 2019 17:35:23 +0200</pubDate>
+      
+      <guid>https://www.pott.dev/blog/2019-06/whiteboards-are-underrated/</guid>
+      <description>From time to time your collegues will ask you questions, you will have discussions or you just want to point out this insanely good idea which will finally solve all the problems the team was facing for such a long time. You are really trying your best to get your opposites to follow you along while explaining, but somehow, however and how often you try to explain it, they will not understand it.
+Everyone know this situation: you try your best to explain, but noone understands you.</description>
+    </item>
+    
+  </channel>
+</rss>
