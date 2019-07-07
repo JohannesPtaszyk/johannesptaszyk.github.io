@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>personal on pott.dev</title>
+    <title>Personal on pott.dev</title>
     <link>https://www.pott.dev/categories/personal/</link>
-    <description>Recent content in personal on pott.dev</description>
+    <description>Recent content in Personal on pott.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 May 2019 16:24:21 +0200</lastBuildDate>

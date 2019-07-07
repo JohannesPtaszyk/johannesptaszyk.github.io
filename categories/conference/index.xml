@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conference on pott.dev</title>
+    <link>https://www.pott.dev/categories/conference/</link>
+    <description>Recent content in Conference on pott.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 02 Jul 2019 08:50:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://www.pott.dev/categories/conference/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Summing up Droidcon Berlin - Community Day</title>
+      <link>https://www.pott.dev/blog/2019-07/summing-up-droidcon-berlin-community-day/</link>
+      <pubDate>Tue, 02 Jul 2019 08:50:00 +0200</pubDate>
+      
+      <guid>https://www.pott.dev/blog/2019-07/summing-up-droidcon-berlin-community-day/</guid>
+      <description>Droidcon this year was the first time I attended a conference. I want to share what it was like and give a small summary on the talks and workshops I&amp;rsquo;ve attended.
+I will only summarize the most important take aways of each talk and provide some links with more information. I just want to share what I found interesting and provide some way to get kicked off with a topic. 👏
+Summary Community Day The first day of Droidcon was all about getting engaged.</description>
+    </item>
+    
+  </channel>
+</rss>

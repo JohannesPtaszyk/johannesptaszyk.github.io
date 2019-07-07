@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blog on pott.dev</title>
+    <title>Blog on pott.dev</title>
     <link>https://www.pott.dev/tags/blog/</link>
-    <description>Recent content in blog on pott.dev</description>
+    <description>Recent content in Blog on pott.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 May 2019 21:29:44 +0200</lastBuildDate>
